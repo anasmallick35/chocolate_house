@@ -1,8 +1,10 @@
 import sqlite3
 
+# Establish a connection to the database
 with sqlite3.connect("chocolate_house.db") as connection:
     cursor = connection.cursor()
     
+    # Create SeasonalFlavors table if it doesn't exist
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS SeasonalFlavors (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -12,7 +14,7 @@ with sqlite3.connect("chocolate_house.db") as connection:
         )
     """)
 
-   
+    # Create IngredientInventory table if it doesn't exist
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS IngredientInventory (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -21,7 +23,7 @@ with sqlite3.connect("chocolate_house.db") as connection:
         )
     """)
 
-   
+    # Create CustomerFeedback table if it doesn't exist
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS CustomerFeedback (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -30,3 +32,5 @@ with sqlite3.connect("chocolate_house.db") as connection:
             allergy_concern TEXT
         )
     """)
+
+# No need for explicit commit and close as `with` handles it
