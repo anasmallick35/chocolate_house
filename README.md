@@ -11,7 +11,9 @@ Step 3:
 Install the required Python packages:
 
 pip install flask
+
 pip install flask-cors
+
 pip install pretty
 
 Step 4:
